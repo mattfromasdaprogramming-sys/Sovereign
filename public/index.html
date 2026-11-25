@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Sovereign — world status</title>
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Sovereign<span>world status</span></h1>
+      <div id="clock" class="clock">loading…</div>
+    </header>
+
+    <main>
+      <section class="grid">
+        <article class="card">
+          <h2>World</h2>
+          <dl id="world-facts">
+            <div><dt>Tick</dt><dd>—</dd></div>
+            <div><dt>Next tick</dt><dd>—</dd></div>
+            <div><dt>Nations</dt><dd>—</dd></div>
+            <div><dt>Players</dt><dd>—</dd></div>
+          </dl>
+        </article>
+
+        <article class="card">
+          <h2>You</h2>
+          <div id="signed-out">
+            <p class="muted">No session. Register or sign in.</p>
+            <form id="auth-form">
+              <label>Handle <input name="handle" autocomplete="username" required /></label>
+              <label>Password <input name="password" type="password" autocomplete="current-password" required /></label>
+              <label id="code-row" hidden>Invite code <input name="code" autocomplete="off" autocapitalize="characters" spellcheck="false" placeholder="SOV-XXXXX-XXXXX" /></label>
+              <div class="row">
+                <button type="submit" data-mode="login">Sign in</button>
+                <button type="submit" data-mode="register" class="ghost">Register</button>
+              </div>
+              <p id="auth-error" class="error"></p>
+            </form>
+          </div>
+          <div id="signed-in" hidden>
+            <p class="who"><strong id="who-handle"></strong></p>
+            <p class="balance"><span id="wallet-balance">—</span> <small>credits</small></p>
+            <button id="logout" class="ghost">Sign out</button>
+          </div>
+        </article>
+
+        <article class="card">
+          <h2>Money audit</h2>
+          <p id="audit" class="muted">—</p>
+        </article>
+      </section>
+
+      <section class="card">
+        <h2>Nations</h2>
+        <div id="nations" class="nations"><p class="muted">Loading…</p></div>
+      </section>
+
+      <section class="card">
+        <h2>Live changes <small id="feed-head"></small></h2>
+        <ol id="feed" class="feed"><li class="muted">Waiting for changes…</li></ol>
+      </section>
+    </main>
+
+    <script src="/app.js" type="module"></script>
+  </body>
+</html>
